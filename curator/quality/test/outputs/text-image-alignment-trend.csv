@@ -1,0 +1,8 @@
+branch,operation,alignment_score,before_alignment_score,after_alignment_score,operator_score,score_mode,before_basis,rows
+baseline,input,0.627207,0.627207,0.627207,1.000000,image_text_embedding_cosine,raw Messi image + original caption,1
+pipeline,text_normalization,0.627207,0.627207,0.627207,1.000000,image_text_embedding_cosine,previous pipeline text-image pair,1
+pipeline,remove_repetitions_punctuation,0.627207,0.627207,0.627207,1.000000,image_text_embedding_cosine,previous pipeline text-image pair,1
+pipeline,remove_stopwords,0.600437,0.627207,0.600437,0.957319,image_text_embedding_cosine,previous pipeline text-image pair,1
+pipeline,semantic_keyword_mask,0.579582,0.600437,0.579582,0.965267,image_text_embedding_cosine,previous cleaned-text output,1
+pipeline,image_random_flip,0.578213,0.579582,0.578213,0.997638,image_text_embedding_cosine_before_after,semantic_keyword_mask output,1
+pipeline,image_canny,0.593592,0.578213,0.593592,1.026597,image_text_embedding_cosine_before_after,semantic_keyword_mask + image_random_flip output,1

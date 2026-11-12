@@ -1,0 +1,23 @@
+schema_version: ocr-ranking-v1
+ranking_version: ocr-ranking-demo-v1
+evaluation_set_version: ocr-ranking-demo-en-v1
+primary_metric: cer
+rows:
+- backend: paddleocr
+  backend_version: 3.7.0
+  device: cpu
+  model_id: paddleocr-official-ppocr-default-v1
+  cer: 0.00348432
+  line_accuracy: 0.94444444
+  layout_f1: 1.0
+  throughput_pages_s: 0.20718002
+  eligible: true
+- backend: mindocr
+  backend_version: 0.5.0
+  device: cpu
+  model_id: mindocr-official-dbnet_mobilenetv3-crnn_resnet34-crnn_resnet34_ch-ppocr_keys_v1-v1
+  cer: 0.05923345
+  line_accuracy: 0.5
+  layout_f1: 0.94444444
+  throughput_pages_s: 0.34522724
+  eligible: true

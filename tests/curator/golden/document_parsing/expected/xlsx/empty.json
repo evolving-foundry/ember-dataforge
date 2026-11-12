@@ -1,0 +1,32 @@
+{
+  "fixture": "xlsx/empty.xlsx",
+  "result": {
+    "document": {
+      "blocks": [],
+      "doc_id": "pd-5c157eeaccfd25c7",
+      "language": "unknown",
+      "provenance": {
+        "backend": null,
+        "backend_version": null,
+        "device": null,
+        "extractor": "openpyxl",
+        "extractor_version": "<version>",
+        "model_id": null,
+        "op_version": "<version>",
+        "operation": "document_parsing",
+        "ranking_evaluation_set": null,
+        "ranking_version": null,
+        "reading_order_version": "ro-v1",
+        "routing_reason": null
+      },
+      "schema_version": "parsed-doc-v2",
+      "source": {
+        "byte_size": 4834,
+        "media_type": "xlsx",
+        "page_count": null,
+        "sha256": "5c157eeaccfd25c71ca2e5488af72cc6aa8fff50bffbbb3e379b828dcb8fcd5c"
+      }
+    },
+    "ok": true
+  }
+}

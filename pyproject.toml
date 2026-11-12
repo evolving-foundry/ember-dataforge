@@ -1,0 +1,85 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "data-forge"
+version = "0.2.0"
+description = "DataForge: synthetic data generation and multimodal curation framework"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Proprietary" }
+dependencies = [
+    "ray[data]>=2.0.0",
+    "numpy>=1.21.0",
+    "pydantic>=2.0,<3",
+    "PyYAML>=6.0",
+    "jsonschema>=4.0",
+    "tqdm>=4.60.0",
+    "zstandard>=0.22.0",
+]
+
+[project.optional-dependencies]
+media = [
+    "Pillow>=8.0.0",
+    "librosa>=0.9.0",
+    "opencv-python-headless>=4.5.0",
+]
+docs = [
+    "Pillow>=8.0.0",
+    "python-docx>=1.1,<2",
+    "openpyxl>=3.1,<4",
+    "pdfplumber>=0.11,<1",
+    "defusedxml>=0.7,<1",
+]
+ocr-mindocr = [
+    "Pillow>=8.0.0",
+    "mindocr==0.5.0",
+    "mindspore==2.11.0",
+    "huggingface-hub>=0.24,<0.25",
+    "numpy>=1.26,<2",
+]
+ocr-paddleocr = [
+    "Pillow>=8.0.0",
+    "paddleocr==3.7.0",
+    "paddlepaddle==3.3.1",
+]
+graph = ["networkx>=3.2"]
+yaml = ["pyyaml>=6.0"]
+parquet = ["pyarrow>=14.0"]
+trajectory-dsh = ["zstandard>=0.22.0"]
+video = ["torch>=2.0", "transformers>=4.40"]
+runtime = ["pyzmq>=25.0"]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+    "pytest-timeout>=2.0",
+    "import-linter>=2.0",
+    "symspellpy>=6.7",
+    "pyzmq>=25.0",
+]
+benchmark = [
+    "torch>=2.0",
+    "pyarrow>=14.0",
+    "pyyaml>=5.4",
+]
+
+[project.entry-points."mdp.operators"]
+synthetic_data_generation = "data_designer.operators:SyntheticDataGenerationOperation"
+
+[project.scripts]
+dataforge = "data_designer.cli.main:main"
+
+[tool.setuptools.packages.find]
+include = ["data_designer*", "curator*", "base*"]
+
+[tool.setuptools.package-data]
+"data_designer.sources" = ["fixtures/**/*"]
+curator = [
+    "py.typed",
+    "operations/loading/schemas/*.json",
+    "operations/augmentation/question_plan_profiles/*.json",
+]
+
+[tool.setuptools.data-files]
+"config/curator" = ["config/curator/global.yaml"]

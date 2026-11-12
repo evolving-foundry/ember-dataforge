@@ -1,0 +1,7 @@
+# cordis.patch.yaml - inject plugins required by the end-to-end test
+# (in the same directory as experiment.yaml).
+- insert:
+    - id: e2e-tasks-plugin
+      name: ./e2e-tasks-plugin.mjs
+    - id: curator-quality
+      name: ../../integrations/evaluator/curator-quality.mjs

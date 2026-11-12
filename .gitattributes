@@ -1,0 +1,18 @@
+# Byte-freeze invariant (benchmarks/runtime.py `_locked_file`): SHA-256 is
+# computed over raw on-disk bytes, so the canonical byte baseline must be LF.
+# This Windows mount flipped tracked files to CRLF; force LF on checkout and
+# commit for every text file. `text=auto` keeps git's binary detection.
+* text=auto eol=lf
+
+# Binary assets (golden fixtures, documents, images) are byte-frozen. Never
+# apply EOL normalization or textual whitespace checks to them.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.docx binary
+*.xlsx binary
+*.zip binary
+*.woff binary
+*.woff2 binary

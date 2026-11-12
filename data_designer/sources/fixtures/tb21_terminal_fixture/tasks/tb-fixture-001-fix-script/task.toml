@@ -1,0 +1,10 @@
+[task]
+name = "terminal/tb-fixture-001-fix-script"
+keywords = ["tb-fixture", "script-repair"]
+
+[metadata]
+difficulty = "easy"
+category = "script-repair"
+
+[environment]
+docker_image = "python:3.12-slim"

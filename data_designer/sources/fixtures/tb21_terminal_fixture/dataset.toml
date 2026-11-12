@@ -1,0 +1,11 @@
+[dataset]
+id = "terminal-bench-2-1-fixture-v1.0"
+schema = "terminal.dataset.v1"
+version = "1.0"
+created = "2026-10-09"
+description = "Synthetic anonymized fixture mimicking the harbor terminal task layout. NOT real terminal-bench data; safe to keep in repo for tests."
+task_count = 3
+
+[layout]
+task_root = "tasks"
+schema_version = "1.3"

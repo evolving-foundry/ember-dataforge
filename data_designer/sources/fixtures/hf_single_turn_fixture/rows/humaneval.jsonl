@@ -1,0 +1,2 @@
+{"prompt": "def add_two(a, b):\n    \"\"\"Return the sum of a and b.\"\"\"\n", "canonical_solution": "    return a + b", "test_code": "assert add_two(2, 3) == 5\nassert add_two(-1, 1) == 0"}
+{"prompt": "def mul_two(a, b):\n    \"\"\"Return the product of a and b.\"\"\"\n", "canonical_solution": "    return a * b", "test_code": "assert mul_two(2, 3) == 6\nassert mul_two(0, 4) == 0"}

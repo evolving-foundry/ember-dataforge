@@ -1,0 +1,6 @@
+# Install from the repository root; all three packages ship in one distribution.
+#   pip install -e .[dev]
+# Runtime dependencies and optional extras are declared in pyproject.toml.
+
+# DSH trajectory reader: zstd-compressed session logs (sources/trajectories/dsh.py).
+zstandard>=0.22.0

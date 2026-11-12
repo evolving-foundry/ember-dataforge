@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="600" viewBox="0 0 1040 600">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,Helvetica,sans-serif}.small{font-size:13px}.label{font-size:15px}.title{font-size:22px;font-weight:700}</style>
+<text class="title" x="520.0" y="34" text-anchor="middle">Real image-video alignment trend under cumulative image operations</text>
+<line x1="88" y1="450" x2="992" y2="450" stroke="#333"/>
+<line x1="88" y1="66" x2="88" y2="450" stroke="#333"/>
+<line x1="88" y1="450.0" x2="992" y2="450.0" stroke="#e2e2e2"/>
+<text class="small" x="76" y="454.0" text-anchor="end">0.0</text>
+<line x1="88" y1="375.4" x2="992" y2="375.4" stroke="#e2e2e2"/>
+<text class="small" x="76" y="379.4" text-anchor="end">0.2</text>
+<line x1="88" y1="300.9" x2="992" y2="300.9" stroke="#e2e2e2"/>
+<text class="small" x="76" y="304.9" text-anchor="end">0.4</text>
+<line x1="88" y1="226.3" x2="992" y2="226.3" stroke="#e2e2e2"/>
+<text class="small" x="76" y="230.3" text-anchor="end">0.6</text>
+<line x1="88" y1="151.7" x2="992" y2="151.7" stroke="#e2e2e2"/>
+<text class="small" x="76" y="155.7" text-anchor="end">0.8</text>
+<line x1="88" y1="77.2" x2="992" y2="77.2" stroke="#e2e2e2"/>
+<text class="small" x="76" y="81.2" text-anchor="end">1.0</text>
+<line x1="88.0" y1="450" x2="88.0" y2="456" stroke="#333"/>
+<text class="small" transform="translate(80.0,470) rotate(34)" text-anchor="start">input</text>
+<line x1="389.3" y1="450" x2="389.3" y2="456" stroke="#333"/>
+<text class="small" transform="translate(381.3,470) rotate(34)" text-anchor="start">image_random_flip</text>
+<line x1="690.7" y1="450" x2="690.7" y2="456" stroke="#333"/>
+<text class="small" transform="translate(682.7,470) rotate(34)" text-anchor="start">image_random_crop</text>
+<line x1="992.0" y1="450" x2="992.0" y2="456" stroke="#333"/>
+<text class="small" transform="translate(984.0,470) rotate(34)" text-anchor="start">image_canny</text>
+<path d="M 88.0,96.1 L 389.3,97.0 L 690.7,110.2 L 992.0,181.0" fill="none" stroke="#1f77b4" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="88.0" cy="96.1" r="6" fill="#1f77b4" stroke="white" stroke-width="2"/>
+<text class="small" x="88.0" y="85.1" text-anchor="middle">0.949</text>
+<circle cx="389.3" cy="97.0" r="6" fill="#1f77b4" stroke="white" stroke-width="2"/>
+<text class="small" x="389.3" y="86.0" text-anchor="middle">0.947</text>
+<circle cx="690.7" cy="110.2" r="6" fill="#1f77b4" stroke="white" stroke-width="2"/>
+<text class="small" x="690.7" y="99.2" text-anchor="middle">0.912</text>
+<circle cx="992.0" cy="181.0" r="6" fill="#1f77b4" stroke="white" stroke-width="2"/>
+<text class="small" x="992.0" y="170.0" text-anchor="middle">0.722</text>
+<text class="label" x="540.0" y="580" text-anchor="middle">operation</text>
+<text class="label" transform="translate(22,258.0) rotate(-90)" text-anchor="middle">real video-image alignment score</text>
+<rect x="742" y="70" width="238" height="52" rx="8" fill="#f8f8f8" stroke="#d0d0d0"/>
+<circle cx="767" cy="97" r="6" fill="#1f77b4"/><text class="small" x="783" y="102">cumulative image pipeline</text>
+</svg>

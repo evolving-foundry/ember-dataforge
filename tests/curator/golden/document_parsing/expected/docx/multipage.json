@@ -1,0 +1,57 @@
+{
+  "fixture": "docx/multipage.docx",
+  "result": {
+    "document": {
+      "blocks": [
+        {
+          "bbox": null,
+          "block_id": "b-000001",
+          "kv_pair": null,
+          "ocr_confidence": null,
+          "page": null,
+          "sheet": null,
+          "style": null,
+          "table": null,
+          "text": "第一页内容：本文档包含多个页面，用于验证分页文本输出。",
+          "type": "paragraph"
+        },
+        {
+          "bbox": null,
+          "block_id": "b-000002",
+          "kv_pair": null,
+          "ocr_confidence": null,
+          "page": null,
+          "sheet": null,
+          "style": null,
+          "table": null,
+          "text": "第二页内容：分页之后的中文段落仍然需要保持阅读顺序。",
+          "type": "paragraph"
+        }
+      ],
+      "doc_id": "pd-3a2f45cbe6f28041",
+      "language": "zh",
+      "provenance": {
+        "backend": null,
+        "backend_version": null,
+        "device": null,
+        "extractor": "python-docx",
+        "extractor_version": "<version>",
+        "model_id": null,
+        "op_version": "<version>",
+        "operation": "document_parsing",
+        "ranking_evaluation_set": null,
+        "ranking_version": null,
+        "reading_order_version": "ro-v1",
+        "routing_reason": null
+      },
+      "schema_version": "parsed-doc-v2",
+      "source": {
+        "byte_size": 36775,
+        "media_type": "docx",
+        "page_count": null,
+        "sha256": "3a2f45cbe6f28041aca78009703773c95fd709bc313a578defe84804dbafcb1d"
+      }
+    },
+    "ok": true
+  }
+}

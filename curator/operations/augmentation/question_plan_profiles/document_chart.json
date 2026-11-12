@@ -1,0 +1,29 @@
+{
+  "profile": "document_chart",
+  "question_plans": [
+    {
+      "type": "text_reading",
+      "instruction": "询问图像中可见文字、标签、标题或图例内容。",
+      "template": "What visible text is relevant in the evidence?"
+    },
+    {
+      "type": "value_lookup",
+      "instruction": "询问图表、表格或文档中可见数值、类别或条目。",
+      "template": "What visible value can be read from the evidence?"
+    },
+    {
+      "type": "comparison",
+      "instruction": "询问可见条目、曲线、柱形或区域之间的比较关系。",
+      "template": "What comparison is directly visible in the evidence?"
+    },
+    {
+      "type": "layout_context",
+      "instruction": "询问标题、坐标轴、图例、表格区域或版面结构。",
+      "template": "What layout context is visible in the evidence?"
+    }
+  ],
+  "generic_question_prefixes": [
+    "what is shown in the image",
+    "what is shown in the document"
+  ]
+}

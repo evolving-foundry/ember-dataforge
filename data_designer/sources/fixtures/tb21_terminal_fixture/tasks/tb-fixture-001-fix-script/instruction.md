@@ -1,0 +1,1 @@
+The helper script `scripts/sum.py` in your workspace raises a SyntaxError: the body of `total(a, b)` lost its operator. Deliver the corrected script as a JSON file dictionary that maps `scripts/sum.py` to its full fixed text. Keep the function signature unchanged; `total(2, 3)` must return 5.

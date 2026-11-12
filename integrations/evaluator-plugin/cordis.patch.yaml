@@ -1,0 +1,3 @@
+- insert:
+    - id: dataforge-benchmark
+      name: "@dataforge/dataforge-evaluator"

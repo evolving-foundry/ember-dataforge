@@ -1,0 +1,8 @@
+# Example cordis.patch.yaml - inject the curator-quality metrics plugin into Evaluator.
+#
+# Usage: copy this file to cordis.patch.yaml next to the experiment YAML and
+# point name at this deliverable's curator-quality.mjs (relative to the patch
+# file or as an absolute path).
+- insert:
+    - id: curator-quality
+      name: ./plugins/curator-quality.mjs

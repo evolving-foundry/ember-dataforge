@@ -1,0 +1,92 @@
+{
+  "profile": "generic",
+  "question_plans": [
+    {
+      "type": "visible_action",
+      "instruction": "询问画面中可见实体正在执行的具体动作，问题中应包含可见主体或目标物。",
+      "template": "What specific action is visible in the evidence?",
+      "applicable_when": {
+        "min_evidence_frames": 1,
+        "required_granularities": ["frame"]
+      },
+      "evidence_policy": {
+        "allow_multi_frame": false,
+        "require_selected_frame_indices": true
+      }
+    },
+    {
+      "type": "object_state",
+      "instruction": "询问关键实体或物体的状态、数量、外观或可见属性，避免只问动作。",
+      "template": "What is the state of the main object in the evidence?",
+      "applicable_when": {
+        "min_evidence_frames": 1,
+        "required_granularities": ["frame"]
+      },
+      "evidence_policy": {
+        "allow_multi_frame": false,
+        "require_selected_frame_indices": true
+      }
+    },
+    {
+      "type": "spatial_relation",
+      "instruction": "询问可见实体、区域或目标物之间的空间关系。",
+      "template": "Where is the main subject relative to the relevant object?",
+      "applicable_when": {
+        "min_evidence_frames": 1,
+        "required_granularities": ["frame"]
+      },
+      "evidence_policy": {
+        "allow_multi_frame": false,
+        "require_selected_frame_indices": true
+      }
+    },
+    {
+      "type": "temporal_change",
+      "instruction": "询问采样帧或片段内的变化、先后关系或动作进展。",
+      "template": "What changes across the referenced video evidence?",
+      "applicable_when": {
+        "min_evidence_frames": 2,
+        "requires_temporal_span": true,
+        "min_visual_time_span_sec": 1.0,
+        "required_granularities": ["frame", "event"],
+        "max_frame_caption_jaccard": 0.72
+      },
+      "evidence_policy": {
+        "allow_multi_frame": true,
+        "require_selected_frame_indices": true
+      }
+    },
+    {
+      "type": "scene_context",
+      "instruction": "询问可见场景、环境、背景或上下文。",
+      "template": "What scene context is visible around the action?",
+      "applicable_when": {
+        "min_evidence_frames": 1,
+        "any_granularities": ["frame", "segment", "event", "context"]
+      },
+      "evidence_policy": {
+        "allow_multi_frame": false,
+        "require_selected_frame_indices": true
+      }
+    },
+    {
+      "type": "outcome_or_intent",
+      "instruction": "询问证据直接支持的动作结果或即时目标，不要推断长期意图。",
+      "template": "What immediate outcome is supported by the evidence?",
+      "applicable_when": {
+        "min_evidence_frames": 1,
+        "required_granularities": ["event"]
+      },
+      "evidence_policy": {
+        "allow_multi_frame": false,
+        "require_selected_frame_indices": true
+      }
+    }
+  ],
+  "generic_question_prefixes": [
+    "what is happening in the video",
+    "what is shown in the video",
+    "what is happening in the image",
+    "what is shown in the image"
+  ]
+}

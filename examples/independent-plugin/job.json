@@ -1,0 +1,8 @@
+{
+  "recipe": "algorithm",
+  "input": {"uri": "../local/input.jsonl"},
+  "output": {"uri": "../../outputs/plugin-demo", "policy": "append"},
+  "recipe_config": {"algorithms": {"main": {
+    "id": "demo.independent", "implementation_version": "1", "adapter": "subprocess"
+  }}}
+}

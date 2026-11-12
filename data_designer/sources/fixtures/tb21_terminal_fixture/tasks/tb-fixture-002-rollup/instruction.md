@@ -1,0 +1,1 @@
+The workspace provides `input/sales_q1.csv` with columns `region,revenue_cny`. Compute the sum of all `revenue_cny` values (one decimal place) and deliver the resulting artifact JSON with exactly two fields: `total_revenue_cny` (number) and `row_count` (integer, number of CSV data rows).

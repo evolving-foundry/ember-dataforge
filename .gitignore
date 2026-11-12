@@ -1,0 +1,27 @@
+
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+/.import_linter_cache/
+/.claude/
+/.pytest_cache/
+/.pytest-tmp/
+/.uv-cache/
+/.venv/
+/data/
+/.idea/
+/build/
+/dist/
+node_modules/
+tsconfig.local.json
+*.log
+
+# TS package build artifacts (regenerable via `tsc -b`)
+packages/*/dist/
+packages/*/tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# Evaluator plugin build output (regenerable)
+integrations/evaluator-plugin/dist/

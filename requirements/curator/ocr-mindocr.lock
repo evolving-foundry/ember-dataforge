@@ -1,0 +1,229 @@
+# Target: CPython 3.10, Linux x86_64.
+# Generated with:
+#   uv pip compile --python-version 3.10 --python-platform x86_64-unknown-linux-gnu requirements/curator/ocr-mindocr.in
+# Inputs: mindocr==0.5.0, mindspore==2.11.0 (PyPI CPU wheel),
+#         huggingface-hub>=0.24,<0.25, numpy>=1.26,<2.
+# MindOCR 0.5.0 imports helpers removed from huggingface-hub 0.25+, so the
+# upper bound is intentional and must be kept until MindOCR is upgraded.
+# NumPy 2.x triggers MindSpore wheel compatibility warnings during inference;
+# pinning 1.26 selects the compatible OpenCV 4.x wheel as well.
+# NPU deployments replace the PyPI mindspore wheel with the vendor
+# MindSpore NPU/CANN runtime from the target image; that runtime is not
+# resolvable from PyPI and is therefore not pinned here.
+addict==2.4.0
+    # via mindocr
+albucore==0.0.24
+    # via albumentations
+albumentations==2.0.8
+    # via mindocr
+annotated-types==0.8.0
+    # via pydantic
+asttokens==3.0.2
+    # via mindspore
+astunparse==1.6.3
+    # via mindspore
+attrs==26.1.0
+    # via xml-python
+beautifulsoup4==4.15.0
+    # via mindocr
+cachetools==7.2.7
+    # via premailer
+certifi==2026.10.23
+    # via requests
+chardet==7.7.0
+    # via encutils
+charset-normalizer==3.5.2
+    # via requests
+cloudpickle==3.1.2
+    # via joblib
+contourpy==1.3.2
+    # via matplotlib
+cssselect==1.5.0
+    # via premailer
+cssutils==2.15.0
+    # via premailer
+cycler==0.12.1
+    # via matplotlib
+cython==3.3.0
+    # via mindocr
+dill==0.4.1
+    # via mindspore
+encutils==1.0.0
+    # via cssutils
+et-xmlfile==2.0.0
+    # via openpyxl
+filelock==4.1.0
+    # via huggingface-hub
+fonttools==4.65.0
+    # via matplotlib
+fsspec==2026.9.0
+    # via huggingface-hub
+huggingface-hub==0.24.7
+    # via
+    #   -r requirements/curator/ocr-mindocr.in
+    #   mindocr
+idna==3.20
+    # via requests
+joblib==1.6.0
+    # via scikit-learn
+kiwisolver==1.5.1
+    # via matplotlib
+lanms-nova==1.0.3
+    # via mindocr
+lmdb==3.0.0
+    # via mindocr
+lxml==6.1.3
+    # via
+    #   mindocr
+    #   premailer
+    #   python-docx
+    #   tablepyxl
+matplotlib==3.10.9
+    # via mindocr
+mindocr==0.5.0
+    # via -r requirements/curator/ocr-mindocr.in
+mindspore==2.11.0
+    # via -r requirements/curator/ocr-mindocr.in
+more-itertools==11.1.0
+    # via cssutils
+numpy==1.26.4
+    # via
+    #   -r requirements/curator/ocr-mindocr.in
+    #   albucore
+    #   albumentations
+    #   contourpy
+    #   lanms-nova
+    #   matplotlib
+    #   mindocr
+    #   mindspore
+    #   opencv-python-headless
+    #   pandas
+    #   pycocotools
+    #   scikit-learn
+    #   scipy
+    #   seqeval
+opencv-python-headless==4.11.0.86
+    # via
+    #   albucore
+    #   albumentations
+    #   mindocr
+openpyxl==3.1.5
+    # via tablepyxl
+packaging==26.3
+    # via
+    #   huggingface-hub
+    #   matplotlib
+    #   mindocr
+    #   mindspore
+    #   setuptools-scm
+    #   vcs-versioning
+    #   wheel
+pandas==2.3.3
+    # via mindocr
+pillow==9.5.0
+    # via
+    #   matplotlib
+    #   mindocr
+    #   mindspore
+premailer==3.10.0
+    # via tablepyxl
+protobuf==7.36.2
+    # via mindspore
+psutil==7.2.2
+    # via mindspore
+pyclipper==1.4.0
+    # via mindocr
+pycocotools==2.0.11
+    # via mindocr
+pydantic==2.14.2
+    # via albumentations
+pydantic-core==2.50.2
+    # via pydantic
+pyparsing==3.3.3
+    # via matplotlib
+python-dateutil==3.0.0
+    # via
+    #   matplotlib
+    #   pandas
+python-docx==1.2.0
+    # via mindocr
+pytz==2026.6
+    # via pandas
+pyyaml==6.0.3
+    # via
+    #   albumentations
+    #   huggingface-hub
+    #   mindocr
+rapidfuzz==3.14.5
+    # via mindocr
+requests==2.34.2
+    # via
+    #   huggingface-hub
+    #   mindocr
+    #   premailer
+    #   tablepyxl
+safetensors==0.8.0
+    # via mindspore
+scikit-learn==1.7.2
+    # via seqeval
+scipy==1.15.3
+    # via
+    #   albumentations
+    #   mindspore
+    #   scikit-learn
+sentencepiece==0.2.2
+    # via mindocr
+seqeval==1.2.2
+    # via mindocr
+setuptools==84.2.1
+    # via setuptools-scm
+setuptools-scm==10.3.4
+    # via mindocr
+shapely==1.8.5.post1
+    # via mindocr
+simsimd==6.5.16
+    # via albucore
+six==1.17.0
+    # via
+    #   astunparse
+    #   python-dateutil
+soupsieve==2.10
+    # via beautifulsoup4
+stringzilla==5.3.2
+    # via albucore
+tablepyxl==0.6.1
+    # via mindocr
+threadpoolctl==3.7.0
+    # via scikit-learn
+tomli==2.5.0
+    # via
+    #   setuptools-scm
+    #   vcs-versioning
+tqdm==4.70.1
+    # via
+    #   huggingface-hub
+    #   mindocr
+typing-extensions==4.16.0
+    # via
+    #   beautifulsoup4
+    #   huggingface-hub
+    #   pydantic
+    #   pydantic-core
+    #   python-docx
+    #   setuptools-scm
+    #   typing-inspection
+    #   vcs-versioning
+typing-inspection==0.4.4
+    # via pydantic
+tzdata==2026.6
+    # via
+    #   pandas
+    #   python-dateutil
+urllib3==2.8.0
+    # via requests
+vcs-versioning==2.6.0
+    # via setuptools-scm
+wheel==0.48.0
+    # via astunparse
+xml-python==0.4.3
+    # via mindocr

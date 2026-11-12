@@ -1,0 +1,13 @@
+version: 1
+artifacts:
+- id: summary_json
+  path: output/summary.json
+  required: true
+  type: json
+llm_judge:
+  method: rubric_binary_mean
+  rubrics: []
+score_merge:
+  method: weighted_sum
+  rule_weight: 1.0
+  llm_weight: 0.0

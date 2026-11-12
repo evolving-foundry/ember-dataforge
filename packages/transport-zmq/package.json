@@ -1,0 +1,22 @@
+{
+  "name": "@dataforge/transport-zmq",
+  "version": "0.1.0",
+  "description": "ZeroMQ RuntimeTransport — ROUTER/DEALER command channel + PUB/SUB event channel",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@dataforge/protocol": "0.1.0",
+    "zeromq": "^6.2.1"
+  }
+}

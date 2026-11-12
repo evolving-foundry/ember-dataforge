@@ -1,0 +1,32 @@
+{
+  "fixture": "docx/empty.docx",
+  "result": {
+    "document": {
+      "blocks": [],
+      "doc_id": "pd-9633dfe6bf867ee1",
+      "language": "unknown",
+      "provenance": {
+        "backend": null,
+        "backend_version": null,
+        "device": null,
+        "extractor": "python-docx",
+        "extractor_version": "<version>",
+        "model_id": null,
+        "op_version": "<version>",
+        "operation": "document_parsing",
+        "ranking_evaluation_set": null,
+        "ranking_version": null,
+        "reading_order_version": "ro-v1",
+        "routing_reason": null
+      },
+      "schema_version": "parsed-doc-v2",
+      "source": {
+        "byte_size": 36568,
+        "media_type": "docx",
+        "page_count": null,
+        "sha256": "9633dfe6bf867ee1672088b5dc11b6ed1386146690514ce83f901371d4869514"
+      }
+    },
+    "ok": true
+  }
+}

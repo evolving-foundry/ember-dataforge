@@ -1,0 +1,46 @@
+{
+  "evidence_groups": {
+    "week_to_date_resolution": [
+      "2026-02-13",
+      "2026-02-20"
+    ],
+    "owner_alias_normalization": [
+      "LC",
+      "小陈"
+    ],
+    "discussion_vs_action_boundary": [
+      "risk discussion items"
+    ]
+  },
+  "metadata": {
+    "case_id": "case_demo_action_items_L2_002",
+    "action_count": 3,
+    "done_count": 1,
+    "meeting_count": 2
+  },
+  "artifacts": {
+    "output/actions.json": [
+      {
+        "owner": "陈立",
+        "due": "2026-02-13",
+        "action": "提交接口联调计划",
+        "source_file": "input/minutes_2026-02-10.md",
+        "status": "done"
+      },
+      {
+        "owner": "李霜",
+        "due": "2026-02-20",
+        "action": "整理测试用例清单",
+        "source_file": "input/minutes_2026-02-10.md",
+        "status": "open"
+      },
+      {
+        "owner": "陈立",
+        "due": "2026-02-20",
+        "action": "确认验收环境",
+        "source_file": "input/minutes_2026-02-17.md",
+        "status": "open"
+      }
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+# Text processing pipeline configuration.
+# Uses only implemented operations.
+
+global:
+  logging_level: info
+  temp_dir: ./temp/text_processing
+  cache_dir: ./cache/text_processing
+
+data:
+  input_path: ./data/input/text
+  output_path: ./data/output/text_processed
+  modalities:
+    - text
+
+resources:
+  cpu: 2
+  memory: 2GB
+
+pipeline:
+  operations:
+    # 1. Load text data
+    - name: text_loading
+      params:
+        data_paths:
+          - ./data/input/text
+        modalities:
+          - text
+
+    # 2. Exact deduplication (implemented)
+    - name: exact_duplicate_removal
+      params:
+        fields:
+          - text
+        ignore_case: true
+
+    # 3. Blocklist filtering (implemented)
+    - name: blocklist_filter
+      params:
+        blocklist:
+          - spam
+          - advertisement
+        case_sensitive: false
+        match_mode: any
+
+    # 4. Special-character filtering (implemented)
+    - name: special_char_filter
+      params:
+        max_special_char_ratio: 0.5
+
+    # 5. N-gram repetition filtering (implemented)
+    - name: ngram_sample_filter
+      params:
+        n: 3
+        max_repetition_ratio: 0.3
+
+    # 6. Mean word length filtering (implemented)
+    - name: mean_word_length_filter
+      params:
+        min_mean_length: 2.0
+        max_mean_length: 20.0
+
+    # 7. Save processed data
+    - name: text_saving
+      params:
+        output_path: ./data/output/text_processed
+        format: json

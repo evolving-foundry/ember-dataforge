@@ -1,0 +1,2 @@
+operation,sample_id,before_label,before_alignment_score,after_label,after_alignment_score,visual_semantic_preservation_score,delta,rows
+image_random_flip,messi5,raw_messi,0.627207,flipped_messi,0.626540,0.993567,-0.000667,1

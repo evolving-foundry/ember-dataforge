@@ -1,0 +1,10 @@
+[task]
+name = "terminal/tb-fixture-002-rollup"
+keywords = ["tb-fixture", "data-artifact"]
+
+[metadata]
+difficulty = "easy"
+category = "data-artifact"
+
+[environment]
+docker_image = "python:3.12-slim"

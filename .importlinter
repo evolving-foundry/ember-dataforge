@@ -1,0 +1,45 @@
+[importlinter]
+root_packages =
+    data_designer
+    curator
+    base
+
+[importlinter:contract:forbid-reverse]
+name = Curator must not import DataDesigner
+type = forbidden
+source_modules =
+    curator
+forbidden_modules =
+    data_designer
+
+[importlinter:contract:layers]
+name = Designer -> Curator -> Base one-way layering
+type = layers
+layers =
+    data_designer
+    curator
+    base
+
+[importlinter:contract:domain-independence]
+name = Generation and pipeline domains never import each other
+type = independence
+modules =
+    data_designer.generation
+    data_designer.pipelines.benchmarks
+
+[importlinter:contract:foundation-independence]
+name = Foundations stay below domains, host adapters and CLI
+type = forbidden
+source_modules =
+    data_designer.contracts
+    data_designer.sources
+    data_designer.verifiers
+    data_designer.storage
+forbidden_modules =
+    data_designer.generation
+    data_designer.pipelines.benchmarks
+    data_designer.pipelines.envsynth
+    data_designer.pipelines.recipes
+    data_designer.integrations
+    data_designer.operators
+    data_designer.cli

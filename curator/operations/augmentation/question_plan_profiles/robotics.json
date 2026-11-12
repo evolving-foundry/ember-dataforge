@@ -1,0 +1,93 @@
+{
+  "profile": "robotics",
+  "question_plans": [
+    {
+      "type": "visible_action",
+      "instruction": "询问机器人、机械臂、夹爪或被操作物体正在执行的可见动作。",
+      "template": "What specific robot action is visible in the evidence?",
+      "applicable_when": {
+        "min_evidence_frames": 1,
+        "required_granularities": ["frame"]
+      },
+      "evidence_policy": {
+        "allow_multi_frame": false,
+        "require_selected_frame_indices": true
+      }
+    },
+    {
+      "type": "object_state",
+      "instruction": "询问托盘、夹爪、工具或目标物的可见状态、数量、外观或是否被抓取。",
+      "template": "What is the visible state of the manipulated object?",
+      "applicable_when": {
+        "min_evidence_frames": 1,
+        "required_granularities": ["frame"]
+      },
+      "evidence_policy": {
+        "allow_multi_frame": false,
+        "require_selected_frame_indices": true
+      }
+    },
+    {
+      "type": "spatial_relation",
+      "instruction": "询问机械臂、夹爪、容器、工具或目标物之间的空间关系。",
+      "template": "Where is the robot relative to the relevant object?",
+      "applicable_when": {
+        "min_evidence_frames": 1,
+        "required_granularities": ["frame"]
+      },
+      "evidence_policy": {
+        "allow_multi_frame": false,
+        "require_selected_frame_indices": true
+      }
+    },
+    {
+      "type": "temporal_change",
+      "instruction": "询问采样帧或片段内的操作变化、接近/抓取/移动顺序或动作进展。",
+      "template": "What manipulation change occurs across the evidence?",
+      "applicable_when": {
+        "min_evidence_frames": 2,
+        "requires_temporal_span": true,
+        "min_visual_time_span_sec": 1.0,
+        "required_granularities": ["frame", "event"],
+        "max_frame_caption_jaccard": 0.72
+      },
+      "evidence_policy": {
+        "allow_multi_frame": true,
+        "require_selected_frame_indices": true
+      }
+    },
+    {
+      "type": "scene_context",
+      "instruction": "询问可见工作台、容器、工具、机器人部件或操作环境上下文。",
+      "template": "What robotics workspace context is visible?",
+      "applicable_when": {
+        "min_evidence_frames": 1,
+        "any_granularities": ["frame", "segment", "event", "context"]
+      },
+      "evidence_policy": {
+        "allow_multi_frame": false,
+        "require_selected_frame_indices": true
+      }
+    },
+    {
+      "type": "outcome_or_intent",
+      "instruction": "询问证据直接支持的即时操作结果，不要推断长期任务意图。",
+      "template": "What immediate manipulation outcome is supported by the evidence?",
+      "applicable_when": {
+        "min_evidence_frames": 1,
+        "required_granularities": ["event"]
+      },
+      "evidence_policy": {
+        "allow_multi_frame": false,
+        "require_selected_frame_indices": true
+      }
+    }
+  ],
+  "generic_question_prefixes": [
+    "what is happening in the video",
+    "what is shown in the video",
+    "what is the robotic arm doing",
+    "what does the robotic arm do",
+    "what is happening with the robotic arm"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "schema_version": "dataforge-job-v1",
+  "recipe": "agent_task",
+  "input": {"uri": "input.jsonl", "schema": "record-v1"},
+  "output": {"uri": "../../outputs/local-demo", "policy": "generated_only"},
+  "execution": {"seed": 42}
+}

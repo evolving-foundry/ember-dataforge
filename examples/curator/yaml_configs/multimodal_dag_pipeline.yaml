@@ -1,0 +1,89 @@
+# Multimodal DAG pipeline configuration.
+# Uses only implemented operations.
+
+global:
+  logging_level: info
+  temp_dir: ./temp/multimodal_dag
+  cache_dir: ./cache/multimodal_dag
+
+data:
+  input_path: ./data/input/multimodal
+  output_path: ./data/output/multimodal_processed
+  modalities:
+    - text
+    - image
+
+resources:
+  cpu: 2
+  memory: 2GB
+
+# DAG definition
+dag:
+  entry_nodes:
+    - load_multimodal
+
+  exit_nodes:
+    - save_text
+    - save_image
+
+  nodes:
+    # Stage 1: load data
+    - id: load_multimodal
+      operation: multimodal_loading
+      params:
+        data_paths:
+          - ./data/input/multimodal/dataset.json
+        modalities:
+          - text
+          - image
+
+    # Stage 2: text processing branch
+    - id: filter_text
+      operation: mean_word_length_filter
+      depends_on:
+        - load_multimodal
+      params:
+        min_mean_length: 3.0
+        max_mean_length: 15.0
+
+    - id: dedup_text
+      operation: exact_duplicate_removal
+      depends_on:
+        - filter_text
+      params:
+        fields:
+          - text
+        ignore_case: true
+
+    - id: save_text
+      operation: text_saving
+      depends_on:
+        - dedup_text
+      params:
+        output_path: ./data/output/multimodal_processed/text
+        format: jsonl
+
+    # Stage 3: image processing branch
+    - id: filter_image
+      operation: image_size_filter
+      depends_on:
+        - load_multimodal
+      params:
+        min_width: 100
+        min_height: 100
+
+    - id: filter_aspect
+      operation: image_aspect_ratio_filter
+      depends_on:
+        - filter_image
+      params:
+        min_ratio: 0.5
+        max_ratio: 2.0
+
+    - id: save_image
+      operation: image_saving
+      depends_on:
+        - filter_aspect
+      params:
+        output_path: ./data/output/multimodal_processed/images
+        format: parquet

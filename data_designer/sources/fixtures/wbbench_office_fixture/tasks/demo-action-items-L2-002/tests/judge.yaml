@@ -1,0 +1,21 @@
+version: 1
+artifacts:
+- id: actions_json
+  path: output/actions.json
+  required: true
+  type: json
+llm_judge:
+  method: rubric_binary_mean
+  rubrics:
+  - id: actions_bound_to_owner_and_date
+    question: Does every action item carry a normalized owner and a concrete due date?
+    artifact_refs:
+    - actions_json
+    pass_criteria:
+    - Each row has owner and due fields populated from the provided inputs.
+    fail_criteria:
+    - Rows with blank owner or vague due dates.
+score_merge:
+  method: weighted_sum
+  rule_weight: 0.8
+  llm_weight: 0.2

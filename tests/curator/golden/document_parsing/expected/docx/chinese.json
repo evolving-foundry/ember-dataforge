@@ -1,0 +1,69 @@
+{
+  "fixture": "docx/chinese.docx",
+  "result": {
+    "document": {
+      "blocks": [
+        {
+          "bbox": null,
+          "block_id": "b-000001",
+          "kv_pair": null,
+          "ocr_confidence": null,
+          "page": null,
+          "sheet": null,
+          "style": null,
+          "table": null,
+          "text": "项目验收报告",
+          "type": "paragraph"
+        },
+        {
+          "bbox": null,
+          "block_id": "b-000002",
+          "kv_pair": null,
+          "ocr_confidence": null,
+          "page": null,
+          "sheet": null,
+          "style": null,
+          "table": null,
+          "text": "这是第一段中文内容，包含足够多的中文字符以触发语言检测。",
+          "type": "paragraph"
+        },
+        {
+          "bbox": null,
+          "block_id": "b-000003",
+          "kv_pair": null,
+          "ocr_confidence": null,
+          "page": null,
+          "sheet": null,
+          "style": null,
+          "table": null,
+          "text": "第二段补充说明：所有字段均来自可复现的 golden 样本。",
+          "type": "paragraph"
+        }
+      ],
+      "doc_id": "pd-2151bece16e24063",
+      "language": "zh",
+      "provenance": {
+        "backend": null,
+        "backend_version": null,
+        "device": null,
+        "extractor": "python-docx",
+        "extractor_version": "<version>",
+        "model_id": null,
+        "op_version": "<version>",
+        "operation": "document_parsing",
+        "ranking_evaluation_set": null,
+        "ranking_version": null,
+        "reading_order_version": "ro-v1",
+        "routing_reason": null
+      },
+      "schema_version": "parsed-doc-v2",
+      "source": {
+        "byte_size": 36790,
+        "media_type": "docx",
+        "page_count": null,
+        "sha256": "2151bece16e240632ccb2db5e3585ce1ce7cbefab42beb92223c3b63d9de1440"
+      }
+    },
+    "ok": true
+  }
+}

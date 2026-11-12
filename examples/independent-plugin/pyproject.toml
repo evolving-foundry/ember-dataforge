@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dataforge-independent-demo"
+version = "0.1.0"
+requires-python = ">=3.9"
+dependencies = ["data-forge>=0.1.0"]
+
+[project.entry-points."data_designer.algorithms"]
+"demo.independent" = "independent_demo:describe"
+
+[tool.setuptools]
+py-modules = ["independent_demo", "worker"]

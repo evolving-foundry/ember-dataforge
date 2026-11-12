@@ -1,0 +1,67 @@
+{
+  "fixture": "pdf/multipage.pdf",
+  "result": {
+    "document": {
+      "blocks": [
+        {
+          "bbox": [
+            0.120952,
+            0.086012,
+            0.562267,
+            0.101454
+          ],
+          "block_id": "b-000001",
+          "kv_pair": null,
+          "ocr_confidence": null,
+          "page": 1,
+          "sheet": null,
+          "style": null,
+          "table": null,
+          "text": "第一页：多页 PDF 需要保留页码和阅读顺序。",
+          "type": "paragraph"
+        },
+        {
+          "bbox": [
+            0.120952,
+            0.086012,
+            0.557725,
+            0.101454
+          ],
+          "block_id": "b-000002",
+          "kv_pair": null,
+          "ocr_confidence": null,
+          "page": 2,
+          "sheet": null,
+          "style": null,
+          "table": null,
+          "text": "第二页：第二页的中文段落也必须完整输出。",
+          "type": "paragraph"
+        }
+      ],
+      "doc_id": "pd-d517b8bc4dd6442e",
+      "language": "zh",
+      "provenance": {
+        "backend": null,
+        "backend_version": null,
+        "device": null,
+        "extractor": "pdfplumber",
+        "extractor_version": "<version>",
+        "model_id": null,
+        "op_version": "<version>",
+        "operation": "document_parsing",
+        "ranking_evaluation_set": null,
+        "ranking_version": null,
+        "reading_order_version": "ro-v1",
+        "routing_reason": null
+      },
+      "schema_version": "parsed-doc-v2",
+      "source": {
+        "byte_size": 2965,
+        "media_type": "pdf",
+        "page_count": 2,
+        "sha256": "d517b8bc4dd6442ea518638ee7710727b9a67bf57ce5129cd13f677339bdbebf"
+      }
+    },
+    "ok": true
+  }
+}

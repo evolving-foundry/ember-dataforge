@@ -1,0 +1,11 @@
+[task]
+name = "terminal/tb-fixture-003-image-state"
+keywords = ["tb-fixture", "system-config"]
+
+[metadata]
+difficulty = "medium"
+category = "system-config"
+
+[environment]
+docker_image = "internal-registry/cfg-base:2.1"
+state_in_image = true

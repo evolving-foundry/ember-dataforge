@@ -1,0 +1,121 @@
+{
+  "fixture": "xlsx/chinese.xlsx",
+  "result": {
+    "document": {
+      "blocks": [
+        {
+          "bbox": null,
+          "block_id": "b-000001",
+          "kv_pair": null,
+          "ocr_confidence": null,
+          "page": null,
+          "sheet": {
+            "index": 0,
+            "name": "订单",
+            "state": "visible"
+          },
+          "style": null,
+          "table": {
+            "cells": [
+              {
+                "bbox": null,
+                "cell_status": "value",
+                "col": 0,
+                "col_span": 1,
+                "covered_by": null,
+                "ocr_confidence": null,
+                "row": 0,
+                "row_span": 1,
+                "text": "订单编号"
+              },
+              {
+                "bbox": null,
+                "cell_status": "value",
+                "col": 1,
+                "col_span": 1,
+                "covered_by": null,
+                "ocr_confidence": null,
+                "row": 0,
+                "row_span": 1,
+                "text": "状态"
+              },
+              {
+                "bbox": null,
+                "cell_status": "value",
+                "col": 0,
+                "col_span": 1,
+                "covered_by": null,
+                "ocr_confidence": null,
+                "row": 1,
+                "row_span": 1,
+                "text": "GD-2026-0011"
+              },
+              {
+                "bbox": null,
+                "cell_status": "value",
+                "col": 1,
+                "col_span": 1,
+                "covered_by": null,
+                "ocr_confidence": null,
+                "row": 1,
+                "row_span": 1,
+                "text": "已完成"
+              },
+              {
+                "bbox": null,
+                "cell_status": "value",
+                "col": 0,
+                "col_span": 1,
+                "covered_by": null,
+                "ocr_confidence": null,
+                "row": 2,
+                "row_span": 1,
+                "text": "备注"
+              },
+              {
+                "bbox": null,
+                "cell_status": "value",
+                "col": 1,
+                "col_span": 1,
+                "covered_by": null,
+                "ocr_confidence": null,
+                "row": 2,
+                "row_span": 1,
+                "text": "中文内容需要保持稳定输出"
+              }
+            ],
+            "n_cols": 2,
+            "n_rows": 3,
+            "structure": "grid"
+          },
+          "text": "",
+          "type": "table"
+        }
+      ],
+      "doc_id": "pd-8e22ba59e2a2c006",
+      "language": "zh",
+      "provenance": {
+        "backend": null,
+        "backend_version": null,
+        "device": null,
+        "extractor": "openpyxl",
+        "extractor_version": "<version>",
+        "model_id": null,
+        "op_version": "<version>",
+        "operation": "document_parsing",
+        "ranking_evaluation_set": null,
+        "ranking_version": null,
+        "reading_order_version": "ro-v1",
+        "routing_reason": null
+      },
+      "schema_version": "parsed-doc-v2",
+      "source": {
+        "byte_size": 5021,
+        "media_type": "xlsx",
+        "page_count": null,
+        "sha256": "8e22ba59e2a2c0066ac0b2885467fb444eb4efe0164df4afc373fce3c94fe9d9"
+      }
+    },
+    "ok": true
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "fixture": "pdf/chinese.pdf",
+  "result": {
+    "document": {
+      "blocks": [
+        {
+          "bbox": [
+            0.120952,
+            0.086012,
+            0.251984,
+            0.101454
+          ],
+          "block_id": "b-000001",
+          "kv_pair": null,
+          "ocr_confidence": null,
+          "page": 1,
+          "sheet": null,
+          "style": null,
+          "table": null,
+          "text": "项目验收报告",
+          "type": "paragraph"
+        },
+        {
+          "bbox": [
+            0.120952,
+            0.11452,
+            0.715138,
+            0.129961
+          ],
+          "block_id": "b-000002",
+          "kv_pair": null,
+          "ocr_confidence": null,
+          "page": 1,
+          "sheet": null,
+          "style": null,
+          "table": null,
+          "text": "这是一个中文测试文档，用于验证 PDF 文本抽取和语言检测。",
+          "type": "paragraph"
+        },
+        {
+          "bbox": [
+            0.120952,
+            0.143027,
+            0.493978,
+            0.158468
+          ],
+          "block_id": "b-000003",
+          "kv_pair": null,
+          "ocr_confidence": null,
+          "page": 1,
+          "sheet": null,
+          "style": null,
+          "table": null,
+          "text": "所有内容均来自可复现的 golden 样本。",
+          "type": "paragraph"
+        }
+      ],
+      "doc_id": "pd-ea2692d28308bcb5",
+      "language": "zh",
+      "provenance": {
+        "backend": null,
+        "backend_version": null,
+        "device": null,
+        "extractor": "pdfplumber",
+        "extractor_version": "<version>",
+        "model_id": null,
+        "op_version": "<version>",
+        "operation": "document_parsing",
+        "ranking_evaluation_set": null,
+        "ranking_version": null,
+        "reading_order_version": "ro-v1",
+        "routing_reason": null
+      },
+      "schema_version": "parsed-doc-v2",
+      "source": {
+        "byte_size": 2564,
+        "media_type": "pdf",
+        "page_count": 1,
+        "sha256": "ea2692d28308bcb5cec457a126bb39be456243d87d757045c0a88ca07fc587b0"
+      }
+    },
+    "ok": true
+  }
+}

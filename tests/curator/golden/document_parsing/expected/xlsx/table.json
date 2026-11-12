@@ -1,0 +1,124 @@
+{
+  "fixture": "xlsx/table.xlsx",
+  "result": {
+    "document": {
+      "blocks": [
+        {
+          "bbox": null,
+          "block_id": "b-000001",
+          "kv_pair": null,
+          "ocr_confidence": null,
+          "page": null,
+          "sheet": {
+            "index": 0,
+            "name": "合并表",
+            "state": "visible"
+          },
+          "style": null,
+          "table": {
+            "cells": [
+              {
+                "bbox": null,
+                "cell_status": "value",
+                "col": 0,
+                "col_span": 2,
+                "covered_by": null,
+                "ocr_confidence": null,
+                "row": 0,
+                "row_span": 1,
+                "text": "设备"
+              },
+              {
+                "bbox": null,
+                "cell_status": "covered",
+                "col": 1,
+                "col_span": 1,
+                "covered_by": [
+                  0,
+                  0
+                ],
+                "ocr_confidence": null,
+                "row": 0,
+                "row_span": 1,
+                "text": ""
+              },
+              {
+                "bbox": null,
+                "cell_status": "value",
+                "col": 0,
+                "col_span": 1,
+                "covered_by": null,
+                "ocr_confidence": null,
+                "row": 1,
+                "row_span": 1,
+                "text": "服务器"
+              },
+              {
+                "bbox": null,
+                "cell_status": "value",
+                "col": 1,
+                "col_span": 1,
+                "covered_by": null,
+                "ocr_confidence": null,
+                "row": 1,
+                "row_span": 1,
+                "text": "就绪"
+              },
+              {
+                "bbox": null,
+                "cell_status": "value",
+                "col": 0,
+                "col_span": 1,
+                "covered_by": null,
+                "ocr_confidence": null,
+                "row": 2,
+                "row_span": 1,
+                "text": "交换机"
+              },
+              {
+                "bbox": null,
+                "cell_status": "value",
+                "col": 1,
+                "col_span": 1,
+                "covered_by": null,
+                "ocr_confidence": null,
+                "row": 2,
+                "row_span": 1,
+                "text": "就绪"
+              }
+            ],
+            "n_cols": 2,
+            "n_rows": 3,
+            "structure": "grid"
+          },
+          "text": "",
+          "type": "table"
+        }
+      ],
+      "doc_id": "pd-d1b0b1c198c42707",
+      "language": "unknown",
+      "provenance": {
+        "backend": null,
+        "backend_version": null,
+        "device": null,
+        "extractor": "openpyxl",
+        "extractor_version": "<version>",
+        "model_id": null,
+        "op_version": "<version>",
+        "operation": "document_parsing",
+        "ranking_evaluation_set": null,
+        "ranking_version": null,
+        "reading_order_version": "ro-v1",
+        "routing_reason": null
+      },
+      "schema_version": "parsed-doc-v2",
+      "source": {
+        "byte_size": 4988,
+        "media_type": "xlsx",
+        "page_count": null,
+        "sha256": "d1b0b1c198c42707efad9bf8e47d3e7d0bb1b4dc68c84045e35d9725c3fd2132"
+      }
+    },
+    "ok": true
+  }
+}

@@ -1,0 +1,19 @@
+[dataset]
+id = "wb-bench-office-fixture-v1.0"
+schema = "workbuddy.dataset.v1"
+version = "1.0"
+created = "2026-09-20"
+description = "Synthetic anonymized fixture mimicking wb-bench Office layout. NOT real workbuddy-bench data; safe to keep in repo for tests."
+task_count = 2
+
+[verifier]
+schema = "workbuddy.verifier.v1"
+engine = "composite"
+
+[runtime]
+harness_delivery = "harness-free"
+requires_harness_mount = false
+base_image = "python:3.12-slim"
+
+[layout]
+task_root = "tasks"

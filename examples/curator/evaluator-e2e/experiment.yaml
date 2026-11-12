@@ -1,0 +1,26 @@
+# End-to-end experiment for the Evaluator repository (curator-quality metrics integration).
+# Run: E2E_DUMMY_API_KEY=dummy node <Evaluator>/dist/cli.js run experiment.yaml
+# Recompute: node <Evaluator>/dist/cli.js report <output.directory>/<runId>
+model:
+  name: dummy
+  provider: openai
+  apiKeyEnv: E2E_DUMMY_API_KEY
+benchmark:
+  name: e2e-tasks
+solver:
+  name: e2e-echo
+environment:
+  name: local
+metrics:
+  - name: success-rate
+  - name: duration
+  - name: usage
+  - name: curator-quality
+    config:
+      pythonExecutable: python3
+      op: CandidateLogDeduplicate
+      env:
+        PYTHONPATH: /mnt/c/workspace/AscendAgent-DataDesigner
+      timeoutMs: 120000
+output:
+  directory: ./runs

@@ -1,0 +1,18 @@
+{
+  "dataset_id": "hf_single_turn_fixture",
+  "schema": "hf-single-turn-snapshot-v1",
+  "row_counts": {
+    "gsm8k": 3,
+    "math500": 2,
+    "mgsm": 2,
+    "drop": 2,
+    "drop_fewshot": 6,
+    "mmlu": 2,
+    "mmlu_pro": 2,
+    "gpqa": 2,
+    "triviaqa": 2,
+    "humaneval": 2,
+    "simpleqa": 3,
+    "healthbench": 2
+  }
+}

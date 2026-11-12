@@ -1,0 +1,13 @@
+{
+  "fixture": "pdf/empty.pdf",
+  "result": {
+    "error": {
+      "code": "SCANNED_PDF_REQUIRES_OCR",
+      "doc_id": "pd-1ac226743802772f",
+      "message": "PDF has too little extractable text; use image_ocr explicitly",
+      "retryable": false,
+      "stage": "parse"
+    },
+    "ok": false
+  }
+}

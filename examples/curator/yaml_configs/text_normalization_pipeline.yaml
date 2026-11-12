@@ -1,0 +1,38 @@
+# Text regex normalization pipeline.
+# Input: data/texts/test_normalization.txt (one sentence per line with dates or dollar amounts)
+# Operations: text_loading -> text_normalization -> text_saving
+
+global:
+  logging_level: info
+
+data:
+  input_path: ./data/texts/test_normalization.txt
+  output_path: ./data/output/text_normalization
+  modalities:
+    - text
+
+resources:
+  cpu: 2
+  memory: 2GB
+
+pipeline:
+  operations:
+    # 1. Load text data (each line becomes one record with a text field)
+    - name: text_loading
+      params:
+        data_paths:
+          - ./data/texts/test_normalization.txt
+
+    # 2. Normalize dates (MM/DD/YYYY and Month DD, YYYY -> YYYY-MM-DD) and
+    #    dollar amounts ($X -> X USD) with regular expressions.
+    - name: text_normalization
+      params:
+        text_key: text
+
+    # 3. Save normalized results. Ray 2.42 DataSaverFactory supports json,
+    #    csv, and parquet output. JSON is written as sharded directories, so
+    #    this example uses a single CSV file for easy comparison with the input.
+    - name: text_saving
+      params:
+        output_path: ./data/output/text_normalization/normalized.csv
+        format: csv

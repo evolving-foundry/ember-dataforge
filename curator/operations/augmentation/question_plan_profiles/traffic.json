@@ -1,0 +1,29 @@
+{
+  "profile": "traffic",
+  "question_plans": [
+    {
+      "type": "actor_state",
+      "instruction": "询问车辆、行人、骑行者或交通信号的可见状态。",
+      "template": "What is the visible state of the traffic actor?"
+    },
+    {
+      "type": "spatial_relation",
+      "instruction": "询问交通参与者、车道、路口、斑马线或信号灯之间的空间关系。",
+      "template": "Where is the traffic actor relative to the road context?"
+    },
+    {
+      "type": "temporal_change",
+      "instruction": "询问交通参与者的移动、停走变化、接近/远离或先后关系。",
+      "template": "What traffic change occurs across the evidence?"
+    },
+    {
+      "type": "risk_context",
+      "instruction": "询问证据直接可见的风险上下文，不推断事故责任或不可见意图。",
+      "template": "What visible traffic risk context is supported by the evidence?"
+    }
+  ],
+  "generic_question_prefixes": [
+    "what is happening in the video",
+    "what is shown in the video"
+  ]
+}

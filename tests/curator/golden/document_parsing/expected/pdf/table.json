@@ -1,0 +1,117 @@
+{
+  "fixture": "pdf/table.pdf",
+  "result": {
+    "document": {
+      "blocks": [
+        {
+          "bbox": [
+            0.120952,
+            0.04778,
+            0.228466,
+            0.066785
+          ],
+          "block_id": "b-000001",
+          "kv_pair": null,
+          "ocr_confidence": null,
+          "page": 1,
+          "sheet": null,
+          "style": null,
+          "table": null,
+          "text": "设备清单",
+          "type": "paragraph"
+        },
+        {
+          "bbox": [
+            0.120952,
+            0.097269,
+            0.705556,
+            0.192293
+          ],
+          "block_id": "b-000002",
+          "kv_pair": null,
+          "ocr_confidence": null,
+          "page": 1,
+          "sheet": null,
+          "style": null,
+          "table": {
+            "cells": [
+              {
+                "bbox": null,
+                "cell_status": "value",
+                "col": 0,
+                "col_span": 1,
+                "covered_by": null,
+                "ocr_confidence": null,
+                "row": 0,
+                "row_span": 1,
+                "text": "设备名称"
+              },
+              {
+                "bbox": null,
+                "cell_status": "value",
+                "col": 1,
+                "col_span": 1,
+                "covered_by": null,
+                "ocr_confidence": null,
+                "row": 0,
+                "row_span": 1,
+                "text": "状态"
+              },
+              {
+                "bbox": null,
+                "cell_status": "value",
+                "col": 0,
+                "col_span": 1,
+                "covered_by": null,
+                "ocr_confidence": null,
+                "row": 1,
+                "row_span": 1,
+                "text": "训练服务器"
+              },
+              {
+                "bbox": null,
+                "cell_status": "value",
+                "col": 1,
+                "col_span": 1,
+                "covered_by": null,
+                "ocr_confidence": null,
+                "row": 1,
+                "row_span": 1,
+                "text": "已验收"
+              }
+            ],
+            "n_cols": 2,
+            "n_rows": 2,
+            "structure": "grid"
+          },
+          "text": "",
+          "type": "table"
+        }
+      ],
+      "doc_id": "pd-28b83c6f92ed6897",
+      "language": "unknown",
+      "provenance": {
+        "backend": null,
+        "backend_version": null,
+        "device": null,
+        "extractor": "pdfplumber",
+        "extractor_version": "<version>",
+        "model_id": null,
+        "op_version": "<version>",
+        "operation": "document_parsing",
+        "ranking_evaluation_set": null,
+        "ranking_version": null,
+        "reading_order_version": "ro-v1",
+        "routing_reason": null
+      },
+      "schema_version": "parsed-doc-v2",
+      "source": {
+        "byte_size": 2524,
+        "media_type": "pdf",
+        "page_count": 1,
+        "sha256": "28b83c6f92ed6897cb97646bc871109b38f42b409205ffd367e5c987c4284628"
+      }
+    },
+    "ok": true
+  }
+}

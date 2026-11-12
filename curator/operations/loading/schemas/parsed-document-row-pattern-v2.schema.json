@@ -1,0 +1,723 @@
+{
+  "$defs": {
+    "Block": {
+      "additionalProperties": false,
+      "properties": {
+        "bbox": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Bbox"
+        },
+        "block_id": {
+          "pattern": "^b-[0-9]{6}$",
+          "title": "Block Id",
+          "type": "string"
+        },
+        "kv_pair": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/KvPair"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ocr_confidence": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "le": 1,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ocr Confidence"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page"
+        },
+        "sheet": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Sheet"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "style": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Style"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "table": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Table"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "paragraph",
+            "table",
+            "kv_pair",
+            "list",
+            "figure",
+            "header",
+            "footer"
+          ],
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "block_id",
+        "type",
+        "sheet",
+        "bbox",
+        "text",
+        "table",
+        "kv_pair",
+        "style"
+      ],
+      "title": "Block",
+      "type": "object"
+    },
+    "Cell": {
+      "additionalProperties": false,
+      "properties": {
+        "bbox": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Bbox"
+        },
+        "cell_status": {
+          "enum": [
+            "value",
+            "cached_formula",
+            "formula_cache_missing",
+            "empty",
+            "covered",
+            "error"
+          ],
+          "title": "Cell Status",
+          "type": "string"
+        },
+        "col": {
+          "minimum": 0,
+          "title": "Col",
+          "type": "integer"
+        },
+        "col_span": {
+          "minimum": 1,
+          "title": "Col Span",
+          "type": "integer"
+        },
+        "covered_by": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "integer"
+              },
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Covered By"
+        },
+        "ocr_confidence": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "le": 1,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ocr Confidence"
+        },
+        "row": {
+          "minimum": 0,
+          "title": "Row",
+          "type": "integer"
+        },
+        "row_span": {
+          "minimum": 1,
+          "title": "Row Span",
+          "type": "integer"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "row",
+        "col",
+        "row_span",
+        "col_span",
+        "text",
+        "cell_status",
+        "bbox",
+        "covered_by"
+      ],
+      "title": "Cell",
+      "type": "object"
+    },
+    "ErrorInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "minLength": 1,
+          "title": "Message",
+          "type": "string"
+        },
+        "retryable": {
+          "title": "Retryable",
+          "type": "boolean"
+        },
+        "stage": {
+          "enum": [
+            "validate",
+            "read",
+            "parse",
+            "ocr",
+            "output"
+          ],
+          "title": "Stage",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "stage",
+        "message",
+        "retryable"
+      ],
+      "title": "ErrorInfo",
+      "type": "object"
+    },
+    "KvPair": {
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "minLength": 1,
+          "title": "Key",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ],
+      "title": "KvPair",
+      "type": "object"
+    },
+    "ParsedDocument": {
+      "additionalProperties": false,
+      "properties": {
+        "blocks": {
+          "items": {
+            "$ref": "#/$defs/Block"
+          },
+          "title": "Blocks",
+          "type": "array"
+        },
+        "doc_id": {
+          "pattern": "^pd-[0-9a-f]{16}$",
+          "title": "Doc Id",
+          "type": "string"
+        },
+        "language": {
+          "enum": [
+            "zh",
+            "en",
+            "mixed",
+            "unknown"
+          ],
+          "title": "Language",
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "schema_version": {
+          "const": "parsed-doc-v2",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/Source"
+        }
+      },
+      "required": [
+        "schema_version",
+        "doc_id",
+        "source",
+        "language",
+        "provenance",
+        "blocks"
+      ],
+      "title": "ParsedDocument",
+      "type": "object"
+    },
+    "Provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "backend": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Backend"
+        },
+        "backend_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Backend Version"
+        },
+        "device": {
+          "anyOf": [
+            {
+              "enum": [
+                "npu",
+                "cuda",
+                "cpu"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Device"
+        },
+        "extractor": {
+          "minLength": 1,
+          "title": "Extractor",
+          "type": "string"
+        },
+        "extractor_version": {
+          "minLength": 1,
+          "title": "Extractor Version",
+          "type": "string"
+        },
+        "model_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Model Id"
+        },
+        "op_version": {
+          "minLength": 1,
+          "title": "Op Version",
+          "type": "string"
+        },
+        "operation": {
+          "enum": [
+            "document_parsing",
+            "image_ocr"
+          ],
+          "title": "Operation",
+          "type": "string"
+        },
+        "ranking_evaluation_set": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ranking Evaluation Set"
+        },
+        "ranking_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ranking Version"
+        },
+        "reading_order_version": {
+          "minLength": 1,
+          "title": "Reading Order Version",
+          "type": "string"
+        },
+        "routing_reason": {
+          "anyOf": [
+            {
+              "enum": [
+                "explicit_backend",
+                "ranking",
+                "ranking_missing",
+                "backend_unavailable",
+                "device_unavailable",
+                "ranking_row_unavailable"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Routing Reason"
+        }
+      },
+      "required": [
+        "extractor",
+        "extractor_version",
+        "operation",
+        "op_version",
+        "reading_order_version",
+        "routing_reason",
+        "ranking_version",
+        "ranking_evaluation_set",
+        "backend",
+        "backend_version",
+        "device",
+        "model_id"
+      ],
+      "title": "Provenance",
+      "type": "object"
+    },
+    "Sheet": {
+      "additionalProperties": false,
+      "properties": {
+        "index": {
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "visible",
+            "hidden",
+            "very_hidden"
+          ],
+          "title": "State",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "index",
+        "state"
+      ],
+      "title": "Sheet",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "byte_size": {
+          "minimum": 0,
+          "title": "Byte Size",
+          "type": "integer"
+        },
+        "media_type": {
+          "enum": [
+            "docx",
+            "xlsx",
+            "pdf",
+            "png",
+            "jpg"
+          ],
+          "title": "Media Type",
+          "type": "string"
+        },
+        "page_count": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Count"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "media_type",
+        "sha256",
+        "byte_size"
+      ],
+      "title": "Source",
+      "type": "object"
+    },
+    "Style": {
+      "additionalProperties": false,
+      "properties": {
+        "bold": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Bold"
+        },
+        "font_size_pt": {
+          "anyOf": [
+            {
+              "gt": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Font Size Pt"
+        }
+      },
+      "required": [
+        "bold"
+      ],
+      "title": "Style",
+      "type": "object"
+    },
+    "Table": {
+      "additionalProperties": false,
+      "properties": {
+        "cells": {
+          "items": {
+            "$ref": "#/$defs/Cell"
+          },
+          "title": "Cells",
+          "type": "array"
+        },
+        "n_cols": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "N Cols"
+        },
+        "n_rows": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "N Rows"
+        },
+        "structure": {
+          "enum": [
+            "grid",
+            "region"
+          ],
+          "title": "Structure",
+          "type": "string"
+        }
+      },
+      "required": [
+        "structure",
+        "cells"
+      ],
+      "title": "Table",
+      "type": "object"
+    }
+  },
+  "$id": "urn:curator:parsed-doc-row-pattern-v2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "anyOf": [
+        {
+          "properties": {
+            "error": {
+              "$ref": "#/$defs/ErrorInfo"
+            }
+          }
+        },
+        {
+          "patternProperties": {
+            "^(?!input_index$|doc_id$|error$)[A-Za-z_][A-Za-z0-9_]{0,127}$": {
+              "$ref": "#/$defs/ParsedDocument"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "not": {
+        "allOf": [
+          {
+            "properties": {
+              "error": {
+                "$ref": "#/$defs/ErrorInfo"
+              }
+            }
+          },
+          {
+            "patternProperties": {
+              "^(?!input_index$|doc_id$|error$)[A-Za-z_][A-Za-z0-9_]{0,127}$": {
+                "$ref": "#/$defs/ParsedDocument"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "maxProperties": 4,
+  "minProperties": 4,
+  "patternProperties": {
+    "^(?!input_index$|doc_id$|error$)[A-Za-z_][A-Za-z0-9_]{0,127}$": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ParsedDocument"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "properties": {
+    "doc_id": {
+      "anyOf": [
+        {
+          "pattern": "^pd-[0-9a-f]{16}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "error": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ErrorInfo"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "input_index": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "input_index",
+    "doc_id",
+    "error"
+  ],
+  "title": "ParsedDocumentRowEnvelopePattern",
+  "type": "object"
+}

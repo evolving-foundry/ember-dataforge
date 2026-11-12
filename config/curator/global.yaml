@@ -1,0 +1,7 @@
+# Canonical Curator global configuration.
+global:
+  logging_level: info
+  temp_dir: /tmp
+  cache_dir: .cache
+  force_full_snapshot: false
+  media_backend: auto

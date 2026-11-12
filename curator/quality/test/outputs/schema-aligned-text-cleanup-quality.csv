@@ -1,0 +1,3 @@
+metric,metric_name,score_name,label,direction,before,after,raw_delta,quality_improvement,relative_improvement,description
+text_noise_contamination.ngram_repetition_rate_mean,text_noise_contamination,ngram_repetition_rate_mean,N-gram repetition rate,lower,0.239322,0.112309,-0.127013,0.127013,0.530720,Declared output score from TextNoiseContaminationAssessor.
+text_normalization_validity.residual_unstandardized_pattern_rate,text_normalization_validity,residual_unstandardized_pattern_rate,Residual unstandardized pattern rate,lower,1.000000,0.142857,-0.857143,0.857143,0.857143,Declared output score from TextNormalizationValidityAssessor.

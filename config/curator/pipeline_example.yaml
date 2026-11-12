@@ -1,0 +1,41 @@
+# Example pipeline configuration
+global:
+  logging_level: info
+  temp_dir: ./.cache/tmp
+  cache_dir: .cache
+  
+pipeline:
+  operations:
+    - name: multimodal_loading
+      params:
+        data_paths: ["./data/sample.json"]
+        modalities: ["text", "image"]
+    - name: invalid_data_removal
+      params:
+        remove_invalid: true
+    - name: quality_based_filter
+      params:
+        quality_threshold: 0.8
+    - name: text_augmentation
+      params:
+        strategy: synonym_replacement
+    - name: image_augmentation
+      params:
+        rotation_range: 15
+        zoom_range: 0.1
+    - name: multimodal_saving
+      params:
+        output_path: ./data/processed
+        format: json
+
+data:
+  input_path: data/raw
+  output_path: data/processed
+  modalities:
+    - text
+    - image
+
+resources:
+  gpu: 1
+  cpu: 4
+  memory: 16GB
